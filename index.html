@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Galería de Demos - Mibanco Colombia - Prototipos y maquetas de innovación digital">
+  <meta name="theme-color" content="#009330">
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Galería de Demos | Mibanco Colombia</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- PASSWORD GATE -->
+  <div id="password-gate" class="password-gate">
+    <div class="password-gate__content">
+      <div class="password-gate__logo">
+        <span class="logo-icon">🎯</span>
+      </div>
+      <h1 class="password-gate__title">Galería de Demos</h1>
+      <p class="password-gate__subtitle">Mibanco Colombia - Acceso restringido</p>
+      <form id="password-form" class="password-gate__form">
+        <input
+          type="password"
+          id="password-input"
+          class="password-gate__input"
+          placeholder="Ingrese contraseña"
+          autocomplete="off"
+          required
+        >
+        <p id="password-error" class="password-gate__error">Contraseña incorrecta. Intente de nuevo.</p>
+        <button type="submit" class="btn btn--primary btn--full">Entrar</button>
+      </form>
+      <p class="password-gate__hint">Prototipos de innovación digital</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main-content" class="main-content">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__brand">
+          <span class="header__logo">🎯</span>
+          <div class="header__text">
+            <h1 class="header__title">Galería de Demos</h1>
+            <p class="header__subtitle">Mibanco Colombia</p>
+          </div>
+        </div>
+        <div class="header__badge">
+          <span class="badge badge--warning">Uso interno</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__content">
+          <h2 class="hero__title">Prototipos de Innovación Digital</h2>
+          <p class="hero__subtitle">Explora las demos y maquetas en desarrollo del equipo de innovación</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <main id="gallery" class="gallery">
+      <div class="container">
+        <div class="gallery__grid">
+
+          <!-- Demo 1: Crédito Híbrido WhatsApp -->
+          <article class="demo-card">
+            <div class="demo-card__preview">
+              <div class="demo-card__icon">💬</div>
+              <span class="demo-card__tag">WhatsApp Flow</span>
+            </div>
+            <div class="demo-card__content">
+              <h3 class="demo-card__title">Flujo WhatsApp Crédito Híbrido</h3>
+              <p class="demo-card__description">Experiencia de desembolso de crédito a través de WhatsApp. Flujo conversacional para solicitud y seguimiento.</p>
+              <div class="demo-card__meta">
+                <span class="demo-card__status demo-card__status--active">En desarrollo</span>
+              </div>
+            </div>
+            <div class="demo-card__actions">
+              <a href="https://credito-hibrido.vercel.app/" target="_blank" rel="noopener" class="btn btn--primary btn--full">
+                Ver Demo
+                <span class="btn__icon">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Demo 2: App Mibanco -->
+          <article class="demo-card">
+            <div class="demo-card__preview">
+              <div class="demo-card__icon">📱</div>
+              <span class="demo-card__tag">Landing Page</span>
+            </div>
+            <div class="demo-card__content">
+              <h3 class="demo-card__title">App Mibanco</h3>
+              <p class="demo-card__description">Landing page de la aplicación móvil Mibanco. Pague, cobre y transfiera desde su celular.</p>
+              <div class="demo-card__meta">
+                <span class="demo-card__status demo-card__status--active">En desarrollo</span>
+              </div>
+            </div>
+            <div class="demo-card__actions">
+              <a href="https://mbc-landing-app-3.vercel.app/" target="_blank" rel="noopener" class="btn btn--primary btn--full">
+                Ver Demo
+                <span class="btn__icon">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Demo 3: ADN Innovador -->
+          <article class="demo-card">
+            <div class="demo-card__preview">
+              <div class="demo-card__icon">🧬</div>
+              <span class="demo-card__tag">Cultura</span>
+            </div>
+            <div class="demo-card__content">
+              <h3 class="demo-card__title">ADN Innovador Mibanco</h3>
+              <p class="demo-card__description">Plataforma de cultura de innovación. Herramientas y metodologías para el equipo Mibanco.</p>
+              <div class="demo-card__meta">
+                <span class="demo-card__status demo-card__status--active">En desarrollo</span>
+              </div>
+            </div>
+            <div class="demo-card__actions">
+              <a href="https://adn-innovador-mbc.vercel.app/" target="_blank" rel="noopener" class="btn btn--primary btn--full">
+                Ver Demo
+                <span class="btn__icon">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Demo 4: Formulario Vinculación -->
+          <article class="demo-card">
+            <div class="demo-card__preview">
+              <div class="demo-card__icon">📝</div>
+              <span class="demo-card__tag">Onboarding</span>
+            </div>
+            <div class="demo-card__content">
+              <h3 class="demo-card__title">Formulario de Vinculación</h3>
+              <p class="demo-card__description">Formulario digital de vinculación de clientes. Experiencia simplificada para nuevos usuarios.</p>
+              <div class="demo-card__meta">
+                <span class="demo-card__status demo-card__status--active">En desarrollo</span>
+              </div>
+            </div>
+            <div class="demo-card__actions">
+              <a href="https://mibanco-formulario-vinculacion.vercel.app/" target="_blank" rel="noopener" class="btn btn--primary btn--full">
+                Ver Demo
+                <span class="btn__icon">→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- INFO SECTION -->
+    <section class="info-section">
+      <div class="container">
+        <div class="info-grid">
+          <div class="info-card">
+            <span class="info-card__icon">🔒</span>
+            <h4 class="info-card__title">Acceso Restringido</h4>
+            <p class="info-card__text">Estos prototipos son de uso interno y no representan productos finales.</p>
+          </div>
+          <div class="info-card">
+            <span class="info-card__icon">🚧</span>
+            <h4 class="info-card__title">En Desarrollo</h4>
+            <p class="info-card__text">Las demos pueden cambiar sin previo aviso mientras se iteran los diseños.</p>
+          </div>
+          <div class="info-card">
+            <span class="info-card__icon">💡</span>
+            <h4 class="info-card__title">Feedback</h4>
+            <p class="info-card__text">Comparte tus comentarios con el equipo de innovación para mejorar las experiencias.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <p class="footer__text">Mibanco Colombia - Equipo de Innovación Digital</p>
+          <p class="footer__legal">Prototipos de uso interno - No distribuir</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
