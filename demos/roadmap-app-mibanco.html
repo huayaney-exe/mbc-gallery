@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap App Mibanco | Propuesta Estratégica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #009330;
+            --color-primary-dark: #006B24;
+            --color-primary-darker: #004D1A;
+            --color-secondary: #FFCE00;
+            --color-secondary-dark: #E5B800;
+            --color-gray-900: #1A1A1A;
+            --color-gray-700: #4D4D4D;
+            --color-gray-600: #666666;
+            --color-gray-300: #CCCCCC;
+            --color-gray-200: #E6E6E6;
+            --color-gray-100: #F2F2F2;
+            --color-error: #DC3545;
+            --color-warning: #F59E0B;
+            --font-primary: 'Bricolage Grotesque', Georgia, serif;
+            --font-secondary: 'Open Sans', Arial, sans-serif;
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            color: var(--color-gray-900);
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f8fdf9 0%, #ffffff 100%);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--color-primary-darker);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .nav-logo span {
+            color: var(--color-secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-link.active {
+            background: var(--color-secondary);
+            color: var(--color-gray-900);
+        }
+
+        /* Slides */
+        .slide {
+            min-height: 100vh;
+            padding: 100px 2rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slide-title {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-gray-600);
+            margin-bottom: 2rem;
+        }
+
+        /* Hero Slide */
+        .hero {
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-primary-darker) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            width: 100vw;
+            max-width: none;
+        }
+
+        .hero .slide-title {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .hero .slide-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.5rem;
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            background: var(--color-secondary);
+            color: var(--color-gray-900);
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--color-secondary);
+            color: var(--color-gray-900);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-secondary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--color-primary-dark);
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon.success { background: rgba(0, 147, 48, 0.1); }
+        .card-icon.warning { background: rgba(245, 158, 11, 0.1); }
+        .card-icon.danger { background: rgba(220, 53, 69, 0.1); }
+        .card-icon.info { background: rgba(0, 147, 48, 0.1); }
+
+        .card-title {
+            font-family: var(--font-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-gray-900);
+        }
+
+        .card-text {
+            color: var(--color-gray-600);
+            font-size: 0.9375rem;
+        }
+
+        /* Comparison Table */
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .comparison-col {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .comparison-col.negative {
+            border-top: 4px solid var(--color-error);
+        }
+
+        .comparison-col.positive {
+            border-top: 4px solid var(--color-primary);
+        }
+
+        .comparison-header {
+            font-family: var(--font-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--color-gray-200);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .comparison-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Timeline */
+        .timeline {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            margin-top: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .timeline-visual {
+            min-width: 800px;
+            padding: 1rem 0;
+        }
+
+        .timeline-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-label {
+            width: 150px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-bar-container {
+            flex: 1;
+            display: flex;
+            position: relative;
+            height: 36px;
+            background: var(--color-gray-100);
+            border-radius: 8px;
+        }
+
+        .timeline-bar {
+            position: absolute;
+            height: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .timeline-months {
+            display: flex;
+            margin-left: 150px;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-month {
+            flex: 1;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--color-gray-600);
+        }
+
+        .timeline-milestone {
+            position: absolute;
+            top: -8px;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background: var(--color-secondary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+        }
+
+        .stat-value {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .stat-value.negative {
+            color: var(--color-error);
+        }
+
+        .stat-label {
+            color: var(--color-gray-600);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Quote */
+        .quote-box {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .quote-text {
+            font-family: var(--font-primary);
+            font-size: 1.75rem;
+            font-weight: 600;
+            line-height: 1.4;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quote-author {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        /* Recommendations */
+        .rec-list {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            margin-top: 1.5rem;
+        }
+
+        .rec-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .rec-item:last-child {
+            border-bottom: none;
+        }
+
+        .rec-number {
+            width: 32px;
+            height: 32px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .rec-content h4 {
+            font-family: var(--font-primary);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .rec-content p {
+            color: var(--color-gray-600);
+            font-size: 0.9375rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-gray-900);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo span {
+            color: var(--color-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide-title { font-size: 2rem; }
+            .hero .slide-title { font-size: 2.5rem; }
+            .comparison-box { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide > * {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Feature tags */
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tag-core { background: var(--color-primary); color: white; }
+        .tag-support { background: var(--color-gray-200); color: var(--color-gray-700); }
+        .tag-new { background: var(--color-secondary); color: var(--color-gray-900); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">Mi<span>banco</span></div>
+        <div class="nav-links">
+            <a href="#problema" class="nav-link">El Problema</a>
+            <a href="#propuesta" class="nav-link">Propuesta</a>
+            <a href="#roadmap" class="nav-link">Roadmap</a>
+            <a href="#recomendaciones" class="nav-link">Recomendaciones</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">Propuesta Estratégica</div>
+        <h1 class="slide-title">Roadmap App Mibanco</h1>
+        <p class="slide-subtitle">Análisis crítico del MVP actual y propuesta de valor revisada para entregar resultados reales en el primer lanzamiento</p>
+        <div class="hero-cta">
+            <a href="#problema" class="btn btn-primary">Ver Análisis</a>
+            <a href="#propuesta" class="btn btn-outline">Ver Propuesta</a>
+        </div>
+    </section>
+
+    <!-- Slide 1: El Problema -->
+    <section id="problema" class="slide">
+        <h2 class="slide-title">El Problema del MVP Actual</h2>
+        <p class="slide-subtitle">El MVP1 planificado no entrega valor real al cliente</p>
+
+        <div class="comparison-box">
+            <div class="comparison-col negative">
+                <div class="comparison-header">
+                    <span>❌</span> Lo que prometimos (RFS)
+                </div>
+                <ul class="comparison-list">
+                    <li><span>💳</span> Pagar cuota SIN ir al banco</li>
+                    <li><span>📱</span> Transferir con número de celular</li>
+                    <li><span>💰</span> Cobrar con Bre-B</li>
+                    <li><span>👤</span> Acceso directo al asesor</li>
+                </ul>
+            </div>
+            <div class="comparison-col negative">
+                <div class="comparison-header">
+                    <span>📋</span> Lo que entrega MVP1 Actual
+                </div>
+                <ul class="comparison-list">
+                    <li><span>👁️</span> Ver cuánto debo</li>
+                    <li><span>👁️</span> Ver movimientos</li>
+                    <li><span>👁️</span> Ver cronograma</li>
+                    <li><span>📄</span> Descargar extractos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="quote-box" style="margin-top: 2rem;">
+            <p class="quote-text">"MVP1 es 100% consultivo. No hay transacciones. Es un folleto digital, no una app bancaria."</p>
+        </div>
+    </section>
+
+    <!-- Slide 2: Gap en Métricas -->
+    <section class="slide">
+        <h2 class="slide-title">Impacto en Métricas de Negocio</h2>
+        <p class="slide-subtitle">El gap entre lo prometido y lo entregado afecta directamente los KPIs</p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value negative">0%</div>
+                <div class="stat-label">Pagos vía app (Target: 40%)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value negative">~15%</div>
+                <div class="stat-label">MAU proyectado (Target: 60%)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value negative">~25%</div>
+                <div class="stat-label">D30 Retention (Target: 65%)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value negative">~20</div>
+                <div class="stat-label">NPS esperado (Target: >50)</div>
+            </div>
+        </div>
+
+        <div class="cards-grid" style="margin-top: 2rem;">
+            <div class="card">
+                <div class="card-icon warning">🎯</div>
+                <h3 class="card-title">Pain Point Principal</h3>
+                <p class="card-text">"Pierdo 2-3 horas cada mes yendo al banco a pagar mi cuota"</p>
+            </div>
+            <div class="card">
+                <div class="card-icon warning">💼</div>
+                <h3 class="card-title">Job-to-be-Done</h3>
+                <p class="card-text">"Pagar mi cuota de forma rápida y segura sin salir de mi negocio"</p>
+            </div>
+            <div class="card">
+                <div class="card-icon danger">❌</div>
+                <h3 class="card-title">MVP1 Resuelve</h3>
+                <p class="card-text">Solo información. No resuelve el pain point real del cliente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Propuesta -->
+    <section id="propuesta" class="slide">
+        <h2 class="slide-title">Propuesta: MVP Unificado</h2>
+        <p class="slide-subtitle">Fusionar MVP1 + MVP2 para entregar valor real en el primer lanzamiento</p>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon success">🔐</div>
+                <h3 class="card-title">Autenticación Completa</h3>
+                <p class="card-text">OTP + Biometría + MFA para transacciones seguras</p>
+                <div style="margin-top: 0.5rem;">
+                    <span class="tag tag-core">Core</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon success">💳</div>
+                <h3 class="card-title">Pago de Cuota</h3>
+                <p class="card-text">Pagar cuota de crédito directamente desde la app</p>
+                <div style="margin-top: 0.5rem;">
+                    <span class="tag tag-core">Core</span>
+                    <span class="tag tag-new">Nuevo</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon success">💸</div>
+                <h3 class="card-title">Transferencias</h3>
+                <p class="card-text">Entre cuentas Mibanco + Interbancaria (ACH)</p>
+                <div style="margin-top: 0.5rem;">
+                    <span class="tag tag-core">Core</span>
+                    <span class="tag tag-new">Nuevo</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon success">📲</div>
+                <h3 class="card-title">Bre-B Completo</h3>
+                <p class="card-text">Registro de llave, enviar y recibir pagos con QR</p>
+                <div style="margin-top: 0.5rem;">
+                    <span class="tag tag-core">Core</span>
+                    <span class="tag tag-new">Nuevo</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon info">📊</div>
+                <h3 class="card-title">Consultas</h3>
+                <p class="card-text">Productos, movimientos, cronograma, extractos</p>
+                <div style="margin-top: 0.5rem;">
+                    <span class="tag tag-support">Soporte</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon info">⚙️</div>
+                <h3 class="card-title">Configuración</h3>
+                <p class="card-text">Inscripción de cuentas, límites de transferencias</p>
+                <div style="margin-top: 0.5rem;">
+                    <span class="tag tag-support">Soporte</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-box">
+            <p class="quote-text">"Si vamos a esperar 9 meses para lanzar, que sea con valor real."</p>
+        </div>
+    </section>
+
+    <!-- Slide 4: Roadmap Original vs Propuesto -->
+    <section id="roadmap" class="slide">
+        <h2 class="slide-title">Comparativa de Roadmaps</h2>
+        <p class="slide-subtitle">Del plan original al plan propuesto con valor desde el día uno</p>
+
+        <div class="comparison-box">
+            <div class="comparison-col negative">
+                <div class="comparison-header">
+                    <span>📅</span> Roadmap Original
+                </div>
+                <ul class="comparison-list">
+                    <li><span>📍</span> Mes 1-4: Negociación</li>
+                    <li><span>📍</span> Mes 5-8: Desarrollo MVP1</li>
+                    <li><span>🚀</span> <strong>Mes 8-9: MVP1 (Solo consultas)</strong></li>
+                    <li><span>📍</span> Mes 9-12: Desarrollo MVP2</li>
+                    <li><span>🚀</span> Mes 12: MVP2 (Transacciones)</li>
+                    <li style="color: var(--color-error);"><span>⚠️</span> <strong>12 meses para valor real</strong></li>
+                </ul>
+            </div>
+            <div class="comparison-col positive">
+                <div class="comparison-header">
+                    <span>✅</span> Roadmap Propuesto
+                </div>
+                <ul class="comparison-list">
+                    <li><span>📍</span> Mes 1-4: Negociación + Prototipado</li>
+                    <li><span>📍</span> Mes 5-7: Construcción Base (F1+F2)</li>
+                    <li><span>📍</span> Mes 8-9: Integración E2E</li>
+                    <li><span>🚀</span> <strong>Mes 9: MVP Unificado</strong></li>
+                    <li style="color: var(--color-primary);"><span>✅</span> <strong>9 meses con valor real</strong></li>
+                    <li style="color: var(--color-primary);"><span>💰</span> Pagos + Transferencias + Bre-B</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Timeline Visual -->
+    <section class="slide">
+        <h2 class="slide-title">Cronograma de Ejecución</h2>
+        <p class="slide-subtitle">16 meses de horizonte con entrega de valor en mes 9</p>
+
+        <div class="timeline">
+            <div class="timeline-months">
+                <span class="timeline-month">1</span>
+                <span class="timeline-month">2</span>
+                <span class="timeline-month">3</span>
+                <span class="timeline-month">4</span>
+                <span class="timeline-month">5</span>
+                <span class="timeline-month">6</span>
+                <span class="timeline-month">7</span>
+                <span class="timeline-month">8</span>
+                <span class="timeline-month">9</span>
+                <span class="timeline-month">10</span>
+                <span class="timeline-month">11</span>
+                <span class="timeline-month">12</span>
+                <span class="timeline-month">13</span>
+                <span class="timeline-month">14</span>
+                <span class="timeline-month">15</span>
+                <span class="timeline-month">16</span>
+            </div>
+            <div class="timeline-visual">
+                <div class="timeline-row">
+                    <div class="timeline-label">Negociación</div>
+                    <div class="timeline-bar-container">
+                        <div class="timeline-bar" style="left: 0%; width: 25%; background: var(--color-secondary);">CIAM + APIs + Canales</div>
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="timeline-label">Prototipado</div>
+                    <div class="timeline-bar-container">
+                        <div class="timeline-bar" style="left: 0%; width: 25%; background: #9333EA;">UX/UI Completo</div>
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="timeline-label">Arquitectura</div>
+                    <div class="timeline-bar-container">
+                        <div class="timeline-bar" style="left: 25%; width: 31.25%; background: var(--color-primary);">APIs F1 + F2</div>
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="timeline-label">Canales</div>
+                    <div class="timeline-bar-container">
+                        <div class="timeline-bar" style="left: 25%; width: 31.25%; background: #0EA5E9;">Frontend + Integración</div>
+                        <div class="timeline-milestone" style="left: 56.25%;" title="MVP Unificado"></div>
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="timeline-label">MVP3 (Créditos)</div>
+                    <div class="timeline-bar-container">
+                        <div class="timeline-bar" style="left: 56.25%; width: 25%; background: var(--color-gray-600);">Venta + Desembolso</div>
+                    </div>
+                </div>
+                <div class="timeline-row">
+                    <div class="timeline-label">MVP4 (Tarjeta)</div>
+                    <div class="timeline-bar-container">
+                        <div class="timeline-bar" style="left: 75%; width: 25%; background: var(--color-gray-400);">Gestión TD</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid" style="margin-top: 2rem;">
+            <div class="stat-card">
+                <div class="stat-value">Mes 9</div>
+                <div class="stat-label">Go-Live MVP Unificado</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Meses de construcción</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">4</div>
+                <div class="stat-label">Meses de prototipado paralelo</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Actividades Durante Negociación -->
+    <section class="slide">
+        <h2 class="slide-title">Aprovechamiento del Tiempo</h2>
+        <p class="slide-subtitle">Actividades paralelas durante los 4 meses de negociación</p>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon success">🎨</div>
+                <h3 class="card-title">Prototipo UX Completo</h3>
+                <p class="card-text">Figma navegable con todos los flujos de MVP Unificado listo para mes 4</p>
+            </div>
+            <div class="card">
+                <div class="card-icon success">📐</div>
+                <h3 class="card-title">Design System</h3>
+                <p class="card-text">Tokens y componentes para consistencia visual en toda la app</p>
+            </div>
+            <div class="card">
+                <div class="card-icon success">📋</div>
+                <h3 class="card-title">Especificaciones API</h3>
+                <p class="card-text">OpenAPI 3.0 specs listos para el proveedor de arquitectura</p>
+            </div>
+            <div class="card">
+                <div class="card-icon success">✅</div>
+                <h3 class="card-title">Casos de Prueba</h3>
+                <p class="card-text">Test cases escritos antes de que comience el desarrollo</p>
+            </div>
+            <div class="card">
+                <div class="card-icon success">👥</div>
+                <h3 class="card-title">User Research</h3>
+                <p class="card-text">Validación con clientes reales antes de construir</p>
+            </div>
+            <div class="card">
+                <div class="card-icon success">🚀</div>
+                <h3 class="card-title">Plan de Rollout</h3>
+                <p class="card-text">Estrategia GTM y capacitación de asesores lista</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: KPIs Target -->
+    <section class="slide">
+        <h2 class="slide-title">Métricas de Éxito</h2>
+        <p class="slide-subtitle">KPIs del MVP Unificado vs el MVP1 original</p>
+
+        <div class="comparison-box">
+            <div class="comparison-col negative">
+                <div class="comparison-header">
+                    <span>📉</span> Proyección MVP1 Original
+                </div>
+                <ul class="comparison-list">
+                    <li><span>📊</span> 0% pagos vía app</li>
+                    <li><span>📊</span> ~15% MAU</li>
+                    <li><span>📊</span> ~25% D30 retention</li>
+                    <li><span>📊</span> NPS ~20</li>
+                    <li><span>📊</span> Sin impacto en mora</li>
+                </ul>
+            </div>
+            <div class="comparison-col positive">
+                <div class="comparison-header">
+                    <span>📈</span> Target MVP Unificado (Mes 12)
+                </div>
+                <ul class="comparison-list">
+                    <li><span>✅</span> 15,000 pagos/mes vía app</li>
+                    <li><span>✅</span> 25% clientes usando app</li>
+                    <li><span>✅</span> >50% D30 retention</li>
+                    <li><span>✅</span> NPS >40</li>
+                    <li><span>✅</span> -5% tasa de mora</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="stats-grid" style="margin-top: 2rem;">
+            <div class="stat-card">
+                <div class="stat-value">50K</div>
+                <div class="stat-label">Descargas target mes 12</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$2M</div>
+                <div class="stat-label">Volumen transado/mes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">-20%</div>
+                <div class="stat-label">Costo por transacción vs sucursal</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">>98%</div>
+                <div class="stat-label">Tasa éxito transaccional</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Recomendaciones -->
+    <section id="recomendaciones" class="slide">
+        <h2 class="slide-title">Recomendaciones</h2>
+        <p class="slide-subtitle">Acciones inmediatas para ejecutar esta propuesta</p>
+
+        <div class="rec-list">
+            <div class="rec-item">
+                <div class="rec-number">1</div>
+                <div class="rec-content">
+                    <h4>Validar fusión MVP1+MVP2 con Arquitectura</h4>
+                    <p>Confirmar que el desarrollo paralelo de APIs F1+F2 es factible en el timeline propuesto</p>
+                </div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-number">2</div>
+                <div class="rec-content">
+                    <h4>Exigir alcance completo al proveedor</h4>
+                    <p>El primer entregable debe incluir todas las funcionalidades de MVP1+MVP2, no solo consultas</p>
+                </div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-number">3</div>
+                <div class="rec-content">
+                    <h4>Iniciar prototipado de transferencias (Semana 1)</h4>
+                    <p>Aprovechar el tiempo de negociación para tener el UX completo listo para mes 4</p>
+                </div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-number">4</div>
+                <div class="rec-content">
+                    <h4>Incluir POC obligatorio en contrato</h4>
+                    <p>Pago de cuota funcional en mes 5 como hito contractual con penalidades</p>
+                </div>
+            </div>
+            <div class="rec-item">
+                <div class="rec-number">5</div>
+                <div class="rec-content">
+                    <h4>Iniciar trámites Bre-B desde mes 1</h4>
+                    <p>La certificación puede requerir tiempo adicional, iniciar proceso temprano</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Slide -->
+    <section class="slide" style="text-align: center;">
+        <h2 class="slide-title">Mensaje Final</h2>
+
+        <div class="quote-box" style="margin-top: 2rem; background: var(--color-primary-darker);">
+            <p class="quote-text" style="font-size: 2rem;">"El cliente de Mibanco necesita PAGAR y TRANSFERIR, no ver cuánto debe."</p>
+            <p class="quote-author">Si vamos a esperar 9 meses para lanzar, que sea con valor real.</p>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <a href="#problema" class="btn btn-primary" style="font-size: 1.125rem; padding: 1.25rem 2.5rem;">Revisar Análisis Completo</a>
+        </div>
+
+        <div style="margin-top: 2rem; color: var(--color-gray-600);">
+            <p>Arquitectura de Soluciones | Diciembre 2024</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">Mi<span>banco</span></div>
+        <p style="opacity: 0.7; font-size: 0.875rem;">Propuesta Estratégica - App Mibanco Colombia</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
